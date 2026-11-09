@@ -1,0 +1,953 @@
+
+/* =================================
+   1. GLOBAL STYLING
+================================= */
+
+:root {
+    --burgundy: #7C0E44;
+    --rose: #AA5E7A;
+    --blush: #D49A9A;
+    --cream: #F2DACE;
+    --white: #FFFCFA;
+    --dark: #38232E;
+    --text: #68545D;
+    --night: #17152E;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px;
+}
+
+body {
+    font-family: Georgia, serif;
+    background: var(--white);
+    color: var(--dark);
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+
+/* =================================
+   2. NAVIGATION
+================================= */
+
+header {
+    background: var(--white);
+    padding: 20px 8%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--cream);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--burgundy);
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--blush);
+}
+
+.menu-toggle {
+    display: none;
+    background: var(--burgundy);
+    color: white;
+    border: none;
+    padding: 8px 13px;
+    font-size: 22px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+/* =================================
+   3. HERO SECTION
+================================= */
+
+.hero {
+    min-height: 90vh;
+    padding: 80px 10%;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(212, 154, 154, 0.3),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            var(--cream),
+            var(--white)
+        );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.hero-text {
+    text-align: left;
+}
+
+.hero-tag,
+.section-tag {
+    display: inline-block;
+    color: var(--burgundy);
+    background: rgba(255, 252, 250, 0.8);
+    border: 1px solid var(--blush);
+    border-radius: 30px;
+    padding: 7px 20px;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(35px, 5vw, 60px);
+    color: var(--dark);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: var(--burgundy);
+    display: block;
+    font-style: italic;
+}
+
+.hero h2 {
+    color: var(--rose);
+    font-size: 19px;
+    font-weight: normal;
+    margin-bottom: 20px;
+    min-height: 35px;
+}
+
+.hero p {
+    max-width: 550px;
+    color: var(--text);
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--burgundy);
+    color: white;
+    padding: 13px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: var(--rose);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(124, 14, 68, 0.2);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--burgundy);
+    color: var(--burgundy);
+}
+
+.btn-outline:hover {
+    color: white;
+}
+
+
+/* HERO IMAGE */
+
+.hero-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-frame {
+    width: 340px;
+    height: 420px;
+    padding: 12px;
+    background: white;
+    border: 2px solid var(--blush);
+    border-radius: 180px 180px 30px 30px;
+    box-shadow: 0 15px 40px rgba(124, 14, 68, 0.15);
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 170px 170px 22px 22px;
+}
+
+.image-decoration {
+    position: absolute;
+    width: 350px;
+    height: 430px;
+    border: 2px solid var(--rose);
+    border-radius: 180px 180px 30px 30px;
+    transform: rotate(7deg);
+    z-index: 1;
+}
+
+
+/* =================================
+   4. GENERAL SECTIONS
+================================= */
+
+.section {
+    padding: 90px 10%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.section h2 {
+    color: var(--burgundy);
+    font-size: 38px;
+    text-align: center;
+    margin-bottom: 35px;
+    position: relative;
+}
+
+.section h2::after {
+    content: "";
+    display: block;
+    width: 55px;
+    height: 3px;
+    background: var(--blush);
+    margin: 12px auto;
+}
+
+.section h3 {
+    color: var(--rose);
+    margin-bottom: 15px;
+    font-size: 21px;
+}
+
+.section p {
+    color: var(--text);
+    margin-bottom: 20px;
+}
+
+
+/* =================================
+   5. ABOUT - MOON & STARS
+================================= */
+
+.about-section {
+    max-width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(124, 14, 68, 0.3),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #17152E,
+            #29203D,
+            #44253F
+        );
+
+    padding: 110px 12%;
+    text-align: center;
+}
+
+/* Stars */
+
+.about-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        radial-gradient(2px 2px at 10% 20%, white 50%, transparent 100%),
+        radial-gradient(2px 2px at 30% 70%, white 50%, transparent 100%),
+        radial-gradient(1px 1px at 50% 30%, white 50%, transparent 100%),
+        radial-gradient(2px 2px at 75% 15%, white 50%, transparent 100%),
+        radial-gradient(1px 1px at 90% 60%, white 50%, transparent 100%),
+        radial-gradient(2px 2px at 65% 85%, white 50%, transparent 100%),
+        radial-gradient(1px 1px at 20% 90%, white 50%, transparent 100%),
+        radial-gradient(2px 2px at 85% 35%, white 50%, transparent 100%);
+
+    background-size: 350px 300px;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+/* Additional stars */
+
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+
+    background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(#D49A9A 1px, transparent 1px);
+
+    background-size: 90px 90px, 130px 130px;
+    background-position: 0 0, 40px 60px;
+}
+
+/* Crescent moon */
+
+.moon {
+    position: absolute;
+    top: 45px;
+    right: 12%;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+
+    background: #F9E8C9;
+
+    box-shadow:
+        0 0 20px rgba(249, 232, 201, 0.5),
+        0 0 60px rgba(249, 232, 201, 0.25);
+}
+
+.moon::after {
+    content: "";
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background: #29203D;
+    top: -12px;
+    left: 22px;
+}
+
+.about-content {
+    position: relative;
+    z-index: 2;
+    max-width: 850px;
+    margin: auto;
+}
+
+.about-section .section-tag {
+    color: #F2DACE;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(242, 218, 206, 0.4);
+}
+
+.about-section h2 {
+    color: #F2DACE;
+    font-size: 42px;
+}
+
+.about-section h2::after {
+    background: var(--blush);
+}
+
+.about-section h3 {
+    color: #D49A9A;
+    font-style: italic;
+    margin-bottom: 25px;
+}
+
+.about-section p {
+    color: #E9DCE6;
+    line-height: 2;
+    font-size: 16px;
+}
+
+.about-decoration {
+    color: #F2DACE;
+    margin-top: 30px;
+    font-style: italic;
+    letter-spacing: 3px;
+}
+
+
+/* =================================
+   6. CONTENT CARDS
+================================= */
+
+.content-card {
+    background: white;
+    padding: 35px;
+    margin: 25px 0;
+    border-radius: 5px 25px 25px 5px;
+    border-left: 5px solid var(--rose);
+    box-shadow: 0 8px 25px rgba(124, 14, 68, 0.06);
+    transition: 0.3s ease;
+}
+
+.content-card:hover {
+    transform: translateY(-6px);
+    border-left-color: var(--burgundy);
+    box-shadow: 0 12px 30px rgba(124, 14, 68, 0.12);
+}
+
+.content-card h3 {
+    color: var(--burgundy);
+}
+
+.content-card h4 {
+    color: var(--blush);
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.content-card ul {
+    padding-left: 22px;
+}
+
+.content-card li {
+    color: var(--text);
+    padding: 3px 0;
+}
+
+#experience .content-card h3 {
+    font-size: 22px;
+}
+
+
+/* =================================
+   7. SKILLS SECTION - FOUR CARDS
+================================= */
+
+.skills-section {
+    max-width: 100%;
+    background: var(--cream);
+    text-align: center;
+}
+
+.skills-section .section-tag,
+.projects-section .section-tag {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.section-intro {
+    max-width: 600px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.skills-container {
+    max-width: 1200px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.skill-card {
+    background: var(--white);
+    padding: 30px 22px;
+    border-radius: 18px;
+    text-align: left;
+    border-bottom: 4px solid var(--rose);
+
+    box-shadow: 0 8px 25px rgba(124, 14, 68, 0.06);
+
+    transition: 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-9px);
+    box-shadow: 0 15px 30px rgba(124, 14, 68, 0.13);
+    border-bottom-color: var(--burgundy);
+}
+
+.skill-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: var(--cream);
+    color: var(--burgundy);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 27px;
+    margin-bottom: 20px;
+}
+
+.skill-card h3 {
+    color: var(--burgundy);
+    font-size: 18px;
+    min-height: 55px;
+}
+
+.skill-card ul {
+    padding-left: 18px;
+}
+
+.skill-card li {
+    color: var(--text);
+    padding: 4px 0;
+    font-size: 14px;
+}
+
+.skill-card li::marker {
+    color: var(--rose);
+}
+
+
+/* =================================
+   8. PROJECTS SECTION
+================================= */
+
+.projects-section {
+    max-width: 100%;
+    background: var(--white);
+    text-align: center;
+}
+
+.projects-container {
+    max-width: 1200px;
+    margin: 45px auto 0;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+
+    text-align: left;
+}
+
+.project-card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+
+    box-shadow: 0 8px 25px rgba(124, 14, 68, 0.08);
+
+    transition: 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(124, 14, 68, 0.15);
+}
+
+/* Project visual areas */
+
+.project-visual {
+    height: 210px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    text-align: center;
+}
+
+.project-visual span {
+    font-size: 45px;
+    margin-bottom: 5px;
+}
+
+.project-visual h3 {
+    color: white;
+    margin-bottom: 3px;
+    font-size: 21px;
+}
+
+.project-visual p {
+    color: #F2DACE;
+    font-size: 13px;
+    margin: 0;
+}
+
+.portfolio-visual {
+    background: linear-gradient(135deg, #7C0E44, #AA5E7A);
+}
+
+.todo-visual {
+    background: linear-gradient(135deg, #38232E, #AA5E7A);
+}
+
+.weather-visual {
+    background: linear-gradient(135deg, #29203D, #665078);
+}
+
+.project-info {
+    padding: 25px;
+}
+
+.project-status {
+    color: var(--rose);
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.project-info h3 {
+    color: var(--burgundy);
+    margin: 10px 0;
+    font-size: 19px;
+}
+
+.project-info p {
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.project-tech span {
+    background: var(--cream);
+    color: var(--burgundy);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+}
+
+
+/* =================================
+   9. FOOTER
+================================= */
+
+footer {
+    background: var(--burgundy);
+    color: var(--cream);
+    text-align: center;
+    padding: 30px 15px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+footer p {
+    margin-bottom: 5px;
+}
+
+.footer-message {
+    font-size: 11px;
+    color: #E5BFCF;
+}
+
+
+/* =================================
+   10. SCROLL REVEAL
+================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =================================
+   11. BACK TO TOP
+================================= */
+
+.back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: var(--burgundy);
+    color: white;
+    font-size: 25px;
+
+    cursor: pointer;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+
+    transition: 0.3s;
+    z-index: 999;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: var(--rose);
+}
+
+
+/* =================================
+   12. RESPONSIVE DESIGN
+================================= */
+
+@media (max-width: 1000px) {
+
+    .hero-content {
+        gap: 30px;
+    }
+
+    .image-frame {
+        width: 280px;
+        height: 360px;
+    }
+
+    .image-decoration {
+        width: 290px;
+        height: 370px;
+    }
+
+    .skills-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projects-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 65px;
+        padding: 12px 20px;
+    }
+
+    .menu-toggle {
+        display: block;
+        flex-shrink: 0;
+        z-index: 1001;
+    }
+
+    header nav {
+        display: none;
+
+        position: absolute;
+        top: 100%;
+        left: 0;
+
+        width: 100%;
+
+        background: var(--cream);
+
+        flex-direction: column;
+        padding: 25px;
+        gap: 20px;
+
+        box-shadow: 0 8px 15px rgba(124, 14, 68, 0.1);
+    }
+
+    header nav.active {
+        display: flex;
+    }
+
+    header nav a {
+        font-size: 12px;
+    }
+
+    .hero {
+        padding: 65px 7%;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-text {
+        text-align: center;
+    }
+
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image {
+        margin-top: 20px;
+    }
+
+    .image-frame {
+        width: 260px;
+        height: 330px;
+    }
+
+    .image-decoration {
+        width: 270px;
+        height: 340px;
+    }
+
+    .section {
+        padding: 65px 7%;
+    }
+
+    .section h2 {
+        font-size: 30px;
+    }
+
+    .about-section {
+        padding: 85px 8%;
+    }
+
+    .moon {
+        width: 50px;
+        height: 50px;
+        right: 10%;
+    }
+
+    .moon::after {
+        width: 50px;
+        height: 50px;
+        left: 15px;
+        top: -8px;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .projects-container {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero h2 {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 200px;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-card {
+        padding: 25px;
+    }
+
+    .content-card {
+        padding: 25px;
+    }
+
+    .about-section h2 {
+        font-size: 32px;
+    }
+
+}
+
+
+/* =================================
+   13. ACCESSIBILITY
+================================= */
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--blush);
+    outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+
+}
